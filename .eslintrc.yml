@@ -1,1 +1,3 @@
 extends: airbnb-base
+rules:
+  object-curly-newline: ["error", { "minProperties": 6, "consistent": true }]
