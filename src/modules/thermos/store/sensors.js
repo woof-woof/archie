@@ -1,7 +1,7 @@
 const { createActions, handleActions } = require('redux-actions');
 const { delay } = require('redux-saga');
 const { all, fork } = require('redux-saga/effects');
-const api = require('../../../mqtt/api');
+const api = require('../mqtt/api');
 
 const UPDATE_DELAY = 30 * 1000; // update interval
 const UPDATE_SENSORS = 'UPDATE_SENSORS';

@@ -1,7 +1,7 @@
 const configParser = require('temperature-config-parser');
 const { all, select, takeLatest, throttle, fork } = require('redux-saga/effects');
 const storage = require('../storage');
-const api = require('../../../mqtt/api');
+const api = require('../mqtt/api');
 const { heatingControl, HEATING_ON, NO_ACTION } = require('../behaviour');
 const { UPDATE_HEATING, sagas: heatingSagas } = require('./heating');
 const { UPDATE_SENSORS, sagas: sensorSagas } = require('./sensors');
