@@ -18,5 +18,5 @@ module.exports = {
   TOPIC_TEMPERATURE: process.env.TOPIC_TEMPERATURE || 'sensors/temperature',
   TOPIC_HEATING: process.env.TOPIC_HEATING || '/heating',
   STATE_LOG_INTERVAL: process.env.STATE_LOG_INTERVAL
-    ? parseInt(process.env.STATE_LOG_INTERVAL, 10) : 600,
+    ? parseInt(process.env.STATE_LOG_INTERVAL, 10) : 600, // 10 minutes
 };
