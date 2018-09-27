@@ -1,12 +1,15 @@
 require('dotenv').config();
 
 module.exports = {
-  server: {
+  mqtt: {
     hostname: `mqtt://${process.env.MQTT_HOST || 'localhost'}`,
     options: {
       username: process.env.MQTT_USER,
       password: process.env.MQTT_PASS,
     },
+  },
+  http: {
+    port: process.env.HTTP_PORT || 3000,
   },
   SERVER_TOPIC: process.env.SERVER_TOPIC || 'thermos',
   ETOPIC_SCHEDULES: process.env.ETOPIC_SCHEDULES || 'schedules',
