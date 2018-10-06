@@ -14,7 +14,16 @@ module.exports = ({ redux: { state: getState } }) => ({
   // get status
   status: () => {
     const { thermos } = getState();
-    return { ...thermos, program: configParser.getProgram(storage.schedule.getActive()) };
+    const activeSchedule = storage.config.get('activeSchedule');
+    const program = configParser.getProgram(storage.schedule.getActive());
+    return {
+      ...thermos,
+      program: {
+        target: program.temperature,
+        mode: program.programName,
+        program: activeSchedule,
+      },
+    };
   },
   // get history
   history: ({ start, end, interval }) => getHistory(start, end, interval),

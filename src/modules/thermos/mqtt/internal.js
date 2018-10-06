@@ -1,8 +1,6 @@
 const moment = require('moment');
-const configParser = require('temperature-config-parser');
 const config = require('../../../config');
 const server = require('../../../mqtt');
-const storage = require('../storage');
 
 function init({ redux: { actions } }) {
   // heating handler
@@ -10,7 +8,6 @@ function init({ redux: { actions } }) {
     actions.updateHeating(
       parseInt(message, 10),
       moment().format(),
-      configParser.getProgram(storage.schedule.getActive()),
     );
   }
   // temperature handler

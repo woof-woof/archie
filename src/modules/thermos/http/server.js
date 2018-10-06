@@ -15,13 +15,13 @@ function init(args) {
   const api = apiBuilder(args);
   const router = express.Router();
   // get status
-  router.get('/status', (req, res) => res.json({ success: true, data: api.status() }));
+  router.get('/status', (req, res) => res.json(api.status()));
   // get schedules
-  router.get('/schedule', (req, res) => res.json({ success: true, data: api.getSchedules() }));
+  router.get('/schedule', (req, res) => res.json(api.getSchedules()));
   // get history
   router.get('/history', async (req, res) => {
     const data = await api.history(historyPayload(Date.now(), HOUR * 36, HOUR));
-    res.json({ success: true, data });
+    res.json(data);
   });
 
   server.use('/thermos', router);
