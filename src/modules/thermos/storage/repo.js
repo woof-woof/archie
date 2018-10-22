@@ -22,10 +22,10 @@ const schedule = {
 
   getAll() {
     const schedules = config.get('schedules');
-    return schedules.reduce((result, id) => {
-      result[id] = this.get(id); // eslint-disable-line no-param-reassign
-      return result;
-    }, {});
+    return schedules.map(id => ({
+      id,
+      ...this.get(id),
+    }));
   },
 
   set(id, value) {
